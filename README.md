@@ -1,4 +1,4 @@
-# decision-science-python
+# Decision-science-python
 Decision Science, data analysis, optimization and simulation in Python for real-world decision-making.
 
 # 📊 Decision Science & Optimization with Python
