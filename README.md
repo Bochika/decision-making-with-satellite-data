@@ -149,7 +149,7 @@ Este proyecto permitió comprender que:
 
 ## Autor
 
-Luis Correa  
+Miguel Correa  
 Proyecto académico y de portafolio enfocado en análisis geoespacial y Observación de la Tierra.
 
 📧 Contact: bochicasimijaca@gmail.com
