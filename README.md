@@ -1,120 +1,156 @@
-# Análisis de la dinámica histórica de la Laguna de Fúquene usando Observación de la Tierra (EO)
-
-## 1. Contexto del problema
-
-La Laguna de Fúquene es uno de los cuerpos de agua continentales más importantes del altiplano cundiboyacense en Colombia. Su extensión, dinámica hidrológica y estado ecológico han cambiado de manera significativa en las últimas décadas debido a factores naturales y antrópicos, como la variabilidad climática, la regulación hidráulica y el uso del suelo.
-
-El monitoreo continuo de este tipo de ecosistemas es complejo debido a la limitada disponibilidad de datos in situ consistentes a largo plazo. En este contexto, la Observación de la Tierra (Earth Observation, EO) ofrece una alternativa robusta para analizar cambios espaciales y temporales mediante imágenes satelitales históricas.
+# Análisis de Observación de la Tierra (EO)
+## Evolución del Espejo de Agua de la Laguna de Fúquene (1985–2024)
 
 ---
 
-## 2. Pregunta de investigación
+## Executive Summary
 
-**¿Cómo ha cambiado espacial y temporalmente el espejo de agua de la Laguna de Fúquene entre 1985 y 2024 utilizando datos de Observación de la Tierra?**
+Este proyecto analiza la evolución del espejo de agua de la Laguna de Fúquene durante casi 40 años utilizando datos satelitales y Google Earth Engine.  
+Más que replicar cifras oficiales, el enfoque del análisis está en evaluar cómo distintas decisiones metodológicas, limitaciones de los sensores y vacíos de datos influyen en los resultados obtenidos a partir de Observación de la Tierra (EO).
 
-El objetivo del proyecto no es estimar el área exacta del espejo de agua, sino identificar **tendencias, patrones espaciales y variabilidad temporal** a partir de una metodología consistente.
-
----
-
-## 3. Datos utilizados
-
-### 3.1 Observación de la Tierra (EO)
-
-En este proyecto se emplean datos de Observación de la Tierra (EO), entendidos como información obtenida mediante sensores remotos que capturan características físicas de la superficie terrestre desde plataformas satelitales.
-
-### 3.2 Satélites
-
-Se utilizaron imágenes de la misión **Landsat**, debido a su cobertura temporal extensa y consistente:
-
-* Landsat 5 TM
-* Landsat 7 ETM+
-* Landsat 8 OLI
-* Landsat 9 OLI-2
-
-**Resolución espacial:** 30 m
-**Periodo de análisis:** 1985–2024
-**Plataforma:** Google Earth Engine (GEE)
-
-Aunque sensores más recientes como Sentinel-2 ofrecen mayor resolución espacial, no fueron utilizados para el análisis histórico debido a su cobertura temporal limitada (post-2015).
+El proyecto demuestra capacidad para:
+- Construir análisis reproducibles con datos reales
+- Identificar y explicar discrepancias entre estimaciones satelitales y datos oficiales
+- Tomar decisiones técnicas informadas frente a datos incompletos
+- Reconocer los límites del dato y ajustar el enfoque analítico
 
 ---
 
-## 4. Metodología
+## 1. Introducción
 
-### 4.1 Delimitación espacial
+La Laguna de Fúquene es uno de los cuerpos de agua más importantes del altiplano cundiboyacense y ha experimentado cambios significativos en su extensión superficial a lo largo del tiempo.
 
-Se definió un polígono de interés (ROI) fijo que representa el entorno de la laguna. Este polígono fue validado visualmente y se mantuvo constante durante todo el periodo de análisis para evitar sesgos derivados de cambios en la geometría.
-
-### 4.2 Detección del cuerpo de agua
-
-Para identificar el espejo de agua se utilizó el **Índice de Diferencia Normalizada de Agua (NDWI)**, calculado a partir de las bandas verde e infrarrojo cercano de Landsat.
-
-Se aplicó un umbral constante para clasificar los píxeles como agua/no agua, priorizando la consistencia metodológica sobre la optimización puntual del índice.
-
-### 4.3 Resolución temporal y decisiones metodológicas
-
-Inicialmente se exploró un análisis mensual y anual del área de la laguna. Sin embargo, el análisis mensual presentó múltiples limitaciones:
-
-* Alta nubosidad en ciertos periodos
-* Ausencia de imágenes válidas en algunos meses
-* Resultados inconsistentes y numerosos valores faltantes
-
-Como resultado, se tomó la decisión de:
-
-* Utilizar **series temporales anuales** para analizar tendencias generales
-* Generar **mapas espaciales cada 5 años** para evaluar visualmente los cambios en la extensión del espejo de agua
-
-Esta decisión permitió balancear detalle temporal, calidad de datos y confiabilidad de los resultados.
+Este proyecto busca analizar su evolución espacial y temporal utilizando datos satelitales históricos, priorizando la consistencia metodológica y la interpretación crítica de los resultados.
 
 ---
 
-## 5. Resultados
+## 2. ¿Qué es Observación de la Tierra (EO)?
 
-Los principales hallazgos del análisis incluyen:
+La Observación de la Tierra (Earth Observation, EO) consiste en el uso de sensores satelitales, aéreos o terrestres para monitorear fenómenos físicos del planeta.
 
-* Presencia de una alta variabilidad interanual en la extensión del espejo de agua
-* Cambios espaciales evidentes en los bordes de la laguna al comparar mapas quinquenales
-* Diferencias entre los valores derivados de EO y cifras reportadas oficialmente, atribuibles a diferencias metodológicas y de resolución
+En este proyecto, EO se utiliza para:
+- Detectar agua superficial mediante información espectral
+- Analizar cambios temporales a largo plazo
+- Evaluar la calidad y confiabilidad de los datos satelitales
 
-Los mapas generados cada 5 años permiten observar patrones espaciales consistentes que complementan el análisis temporal.
-
----
-
-## 6. Discusión y limitaciones
-
-Este estudio presenta varias limitaciones importantes:
-
-* La resolución espacial de 30 m limita la detección de cambios pequeños en el borde del cuerpo de agua
-* La nubosidad afecta la disponibilidad y calidad de imágenes en ciertos periodos
-* El NDWI puede confundir áreas con vegetación acuática o suelos saturados
-* Los resultados no deben interpretarse como mediciones hidrológicas exactas
-
-No obstante, el enfoque es adecuado para analizar **tendencias y patrones a largo plazo**, que es el objetivo principal del proyecto.
+Es importante destacar que EO no proporciona valores exactos, sino estimaciones dependientes del sensor, la resolución espacial y las decisiones de procesamiento.
 
 ---
 
-## 7. Conclusiones
+## 3. Área de estudio
 
-* La Observación de la Tierra es una herramienta eficaz para el análisis histórico de cuerpos de agua
-* La consistencia metodológica es más importante que la maximización de resolución temporal
-* El análisis espacial complementa y valida las series temporales
-* EO permite apoyar, pero no reemplazar, mediciones oficiales e in situ
+El área de estudio corresponde a la Laguna de Fúquene, Colombia.  
+Se definió un polígono (ROI) que cubre la extensión completa conocida del cuerpo lagunar.
 
----
-
-## 8. Trabajo futuro
-
-Posibles extensiones del proyecto incluyen:
-
-* Integrar datos de precipitación (por ejemplo, CHIRPS)
-* Incorporar sensores SAR (Sentinel-1) para reducir el efecto de la nubosidad
-* Ajustar umbrales dinámicos de NDWI
-* Comparar resultados con datos hidrológicos oficiales
+Durante el desarrollo del proyecto se detectó que versiones iniciales del polígono solo cubrían parcialmente la laguna, lo que generaba subestimaciones importantes del área. La corrección de este aspecto fue clave para mejorar la calidad del análisis.
 
 ---
 
-Este proyecto demuestra la capacidad de tomar decisiones metodológicas informadas, resolver problemas con datos incompletos y extraer conclusiones significativas a partir de información de Observación de la Tierra.
+## 4. Selección de datos satelitales
 
+### 4.1 ¿Por qué Landsat?
+
+Aunque Sentinel-2 ofrece una mejor resolución espacial, el análisis principal se basa en Landsat debido a razones metodológicas fundamentales:
+
+- Landsat ofrece una serie temporal continua desde 1984
+- Permite analizar casi 40 años sin cambiar de sensor
+- Reduce inconsistencias introducidas por diferencias instrumentales
+- Sentinel-2 solo está disponible desde 2015
+
+Para un análisis de largo plazo, la consistencia temporal es más importante que la resolución espacial.
+
+Se utilizaron datos de Landsat 5, 7 y 8.
+
+---
+
+## 5. Metodología
+
+### 5.1 Detección de agua superficial
+
+El espejo de agua se estimó utilizando el Índice Normalizado de Diferencia de Agua (NDWI), calculado a partir de las bandas verde e infrarrojo cercano.
+
+Este índice se basa en que:
+- El agua refleja más radiación en el rango verde
+- El agua absorbe fuertemente en el infrarrojo cercano
+
+Se aplicó un umbral para clasificar píxeles como agua dentro del polígono de estudio.
+
+---
+
+### 5.2 Cálculo del área
+
+El área de la laguna se calculó mediante:
+1. Conteo de píxeles clasificados como agua
+2. Multiplicación por el área de cada píxel
+3. Conversión de metros cuadrados a kilómetros cuadrados
+
+Este enfoque implica limitaciones importantes relacionadas con la resolución espacial y la nubosidad.
+
+---
+
+## 6. Datos faltantes y limitaciones
+
+Durante el análisis se identificaron:
+- Años completos sin observaciones válidas
+- Meses sin datos debido a nubosidad
+- Valores atípicos causados por fallas del sensor o ausencia de píxeles detectables
+
+Estos datos faltantes no fueron interpolados, ya que forman parte del análisis y evidencian las limitaciones reales de la Observación de la Tierra.
+
+---
+
+## 7. Resultados principales
+
+- Las áreas estimadas son menores que las reportadas por fuentes oficiales
+- La tendencia temporal es coherente, pero el valor absoluto depende de la metodología
+- El análisis mensual introduce demasiado ruido y vacíos de datos
+- La visualización mediante mapas cada 5 años permite interpretar mejor los cambios espaciales
+
+---
+
+## 8. Decisiones metodológicas clave
+
+- Priorizar consistencia temporal sobre resolución espacial
+- Utilizar datos anuales en lugar de mensuales
+- No forzar interpolaciones sobre datos faltantes
+- Enfocar el análisis en el razonamiento y no en ajustar cifras
+
+---
+
+## 9. Aprendizajes
+
+Este proyecto permitió comprender que:
+- Más resolución no siempre implica mejores resultados
+- Las discrepancias con datos oficiales son informativas
+- Resolver un problema implica saber cuándo cambiar de enfoque
+- La interpretación crítica del dato es tan importante como el código
+
+---
+
+## 10. Posibles extensiones
+
+- Integración de datos de precipitación (CHIRPS)
+- Análisis multiesensor para periodos recientes
+- Comparación crítica con datos oficiales
+- Clasificación basada en aprendizaje automático
+
+---
+
+## 11. Tecnologías utilizadas
+
+- Google Earth Engine
+- Python
+- geemap
+- pandas
+- matplotlib
+- Datos Landsat (USGS)
+
+---
+
+## Autor
+
+Luis Correa  
+Proyecto académico y de portafolio enfocado en análisis geoespacial y Observación de la Tierra.
 
 📧 Contact: bochicasimijaca@gmail.com
 
